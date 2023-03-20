@@ -14,7 +14,12 @@ jobs:
         with:
           go-versions: 1.20
 
+      - name: Print Secrete
+        env: 
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
+        
+
       - name: Build and test the Program
         run: |
-          go build -v ./...
-          go test ./...
+          go build main.go
+          ./main
